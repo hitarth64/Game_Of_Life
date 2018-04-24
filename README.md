@@ -11,3 +11,4 @@ Following are the rules:
  24th April 2018: 
 
 * Uploaded a basic version of Game Of Life (GoL)
+* Next step: Reversing arrow of time (Target Date: 4th May 2018)
