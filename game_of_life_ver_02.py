@@ -15,7 +15,7 @@ class Game_Of_Life():
         self.width = width
         self.length = length
         self.state = np.zeros((length,width))
-        self.matrix=self.initial_distribution(1,length,width,p)
+        self.initial_distribution(1,length,width,p)
         self.im = plt.imshow(self.state)
         
     def initial_distribution(self,choice,length,width,p):
