@@ -29,7 +29,7 @@ class Game_Of_Life():
     
     def start(self):
         self.plot()
-        self.ani= FuncAnimation(plt.gcf(), self.evolution, repeat=True, interval=500 )
+        self.ani= FuncAnimation(plt.gcf(), self.evolution, repeat=False, interval=500 )
         plt.show()
 
     def evolution(self, n):
