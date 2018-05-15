@@ -5,13 +5,12 @@ import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib.animation import FuncAnimation
 from scipy.ndimage import convolve
+import pandas as pd
 
-length_of_grid = 5 #assuming a rectangular grid
-width_of_grid = 5
 
 class Game_Of_Life():
 
-    def __init__(self, width, length, p=0.7):
+    def __init__(self, width, length, p=0.3):
         self.width = width
         self.length = length
         self.state = np.zeros((length,width))
@@ -29,7 +28,7 @@ class Game_Of_Life():
     
     def start(self):
         self.plot()
-        self.ani= FuncAnimation(plt.gcf(), self.evolution, repeat=False, interval=500 )
+        self.ani= FuncAnimation(plt.gcf(), self.evolution, repeat=False, interval=50 )
         plt.show()
 
     def evolution(self, n):
@@ -40,6 +39,12 @@ class Game_Of_Life():
         new[c < 2] = 0
         new[c > 3] = 0
         new[(self.state == 1) & (c == 2)] = 1
+        temp_vector = np.reshape(new,(1,self.width*self.length))
+        
+        f_handle = open('train_data_2.csv','a')
+        np.savetxt(f_handle,temp_vector,delimiter=',',newline='\n')
+        f_handle.close()
+        
         self.state = new
         self.plot()
 
