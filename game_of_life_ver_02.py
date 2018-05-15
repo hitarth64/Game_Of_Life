@@ -41,7 +41,7 @@ class Game_Of_Life():
         new[(self.state == 1) & (c == 2)] = 1
         temp_vector = np.reshape(new,(1,self.width*self.length))
         
-        f_handle = open('train_data_2.csv','a')
+        f_handle = open('data.csv','a')
         np.savetxt(f_handle,temp_vector,delimiter=',',newline='\n')
         f_handle.close()
         
